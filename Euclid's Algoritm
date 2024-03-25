@@ -1,8 +1,14 @@
 #include <stdio.h>
 
+typedef struct
+{
+    int nominator;
+    int denominator;
+} fraction;
+
 void swap(int *a, int *b)
 {
-    if(*a <* b)
+    if (*a < *b)
     {
         int c = *a;
         *a = *b;
@@ -10,43 +16,33 @@ void swap(int *a, int *b)
     }
 }
 
-int EulerAlgorithm(int a,int b)
+int EulerAlgorithm(int a, int b)
 {
-    if(a < b)
+    if (a < b)
     {
-        swap(&a,&b);
+        swap(&a, &b);
     }
 
-    while(a / b > 0)
+    while (a % b != 0)
     {
         int c = a % b;
-        
-        if(a % b != 0)
-        {
-            int d = a;
-            a = b ;
-            b = d % b;
-        }
-        else
-        {
-            return b;
-        }
+        int d = a;
+        a = b;
+        b = c;
     }
+    return b;
 }
-
+    
 int main() 
 {
-    int a = 116298, b=461952;
+    fraction eulersParameters;
+    eulersParameters.nominator;
+    eulersParameters.denominator;
     
-    //scanf("%d", &a);
-    //scanf("%d", &b);
+    scanf("%d", &eulersParameters.nominator);
+    scanf("%d", &eulersParameters.denominator);
 
+    printf("Nominator : %d \nDenominator : %d\nEuler's Result : %d", eulersParameters.nominator, eulersParameters.denominator, EulerAlgorithm(eulersParameters.nominator, eulersParameters.denominator));
 
-    printf("a : %d \nb : %d\nEuler Result : %d",a ,b , EulerAlgorithm(a,b));
-    
-    
-    
     return 0;
 }
-
-
