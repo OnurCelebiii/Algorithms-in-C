@@ -1,0 +1,32 @@
+#include <stdio.h>
+
+int EulerAlgorithm(int a,int b)
+{
+    while(a / b > 0)
+    {
+        int c = a % b;
+        
+        if(a % b != 0)
+        {
+            int d = a;
+            a = b ;
+            b = d % b;
+        }
+        else
+        {
+            return b;
+        }
+    }
+}
+
+int main() 
+{
+    int a = 461952, b=116298;
+    
+    //scanf("%d", &a);
+    //scanf("%d", &b);
+
+    printf("a : %d \nb : %d\nEuler Result : %d",a,b, EulerAlgorithm(a,b));
+    
+    return 0;
+}
