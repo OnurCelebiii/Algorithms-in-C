@@ -1,7 +1,22 @@
 #include <stdio.h>
 
+void swap(int *a, int *b)
+{
+    if(*a <* b)
+    {
+        int c = *a;
+        *a = *b;
+        *b = c;
+    }
+}
+
 int EulerAlgorithm(int a,int b)
 {
+    if(a < b)
+    {
+        swap(&a,&b);
+    }
+
     while(a / b > 0)
     {
         int c = a % b;
@@ -21,12 +36,17 @@ int EulerAlgorithm(int a,int b)
 
 int main() 
 {
-    int a = 461952, b=116298;
+    int a = 116298, b=461952;
     
     //scanf("%d", &a);
     //scanf("%d", &b);
 
-    printf("a : %d \nb : %d\nEuler Result : %d",a,b, EulerAlgorithm(a,b));
+
+    printf("a : %d \nb : %d\nEuler Result : %d",a ,b , EulerAlgorithm(a,b));
+    
+    
     
     return 0;
 }
+
+
